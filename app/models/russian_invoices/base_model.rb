@@ -21,6 +21,7 @@ class RussianInvoices::BaseModel
     if save
       true
     else
+      puts self.errors.messages
       raise RussianInvoices::ValidationError
     end
   end
@@ -41,7 +42,7 @@ class RussianInvoices::BaseModel
   end
 
   private
-  
+
     def attributes=(attributes)
       attributes.each do |name, value|
         send("#{name}=", value)
